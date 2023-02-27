@@ -1,0 +1,12 @@
+services:
+	nginx:
+
+	mariadb:
+
+	wordpress:
+
+volumes:
+	wp_db:
+
+	maria_db:
+	
