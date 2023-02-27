@@ -1,3 +1,7 @@
-FROM debian:latest
+FROM debian:buster
 
-ENTRYPOINT sudo apt-get update && sudo apt-get install -y nginx openssl
+COPY conf nginx.conf
+
+RUN apt-get update ; apt-get install -y nginx openssl ; cp nginx.conf /etc/nginx/nginx.conf ; nginx -s reload
+
+EXPOSE 443
