@@ -31,4 +31,4 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 
 RUN php wp-cli.phar --info
 
-CMD ["tail", "-f"]
+CMD ["php", "wp-cli.phar", "--info"]
