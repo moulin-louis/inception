@@ -6,4 +6,4 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 				php8-cli\
 				php8-fpm
 
-CMD ["php8", "-v"]
+CMD ["php", "-v"]
