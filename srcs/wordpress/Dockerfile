@@ -27,4 +27,4 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
     php8-pecl-redis \
 	&& ln /usr/bin/php8 /usr/bin/php
 
-CMD ["php", "-v"]
+CMD ["tail", "-f"]
