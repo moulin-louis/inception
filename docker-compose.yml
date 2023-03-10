@@ -3,6 +3,7 @@ services:
     build: ./srcs/nginx
     volumes:
       - database:/home/loumouli/data
+    restart: always
 
 volumes:
   database:
