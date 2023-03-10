@@ -1,7 +1,6 @@
 services:
   nginx:
     build: ./srcs/nginx
-    container_names: nginx
     volumes:
       - database:/home/loumouli/data
 
