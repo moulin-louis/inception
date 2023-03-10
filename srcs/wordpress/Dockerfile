@@ -3,7 +3,6 @@ FROM alpine:3.17
 RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
 	&&	apk update \
 	&& apk add --no-cache php8 \
-	lighttpd	\
     php8-common \
 	php8-session\
 	php8-gd\
@@ -40,6 +39,7 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
     php8-tokenizer \
     php8-pecl-redis \
 	curl \
+	wget \
 	&& ln /usr/bin/php8 /usr/bin/php &&\
 	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&\
 	chmod +x wp-cli.phar &&\
