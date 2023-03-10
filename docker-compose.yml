@@ -13,5 +13,7 @@ services:
     build: ./srcs/nginx
     volumes:
       - database:/var/www/html
+    ports:
+      - "443:443"
     restart: always
 
