@@ -1,17 +1,17 @@
-volumes:
-  database:
-    driver: local
-    name: database
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/loumouli/data
+# volumes:
+#   database:
+#     driver: local
+#     name: database
+#     driver_opts:
+#       type: none
+#       o: bind
+#       device: /home/loumouli/data
 
 services:
   nginx:
     container_name: nginx
     build: ./srcs/nginx
-    volumes:
-      - database:/home/loumouli/data
+    # volumes:
+    #   - database:/home/loumouli/data
     restart: always
 
