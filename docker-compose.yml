@@ -9,6 +9,7 @@ volumes:
 
 services:
   nginx:
+    container_name: nginx
     build: ./srcs/nginx
     volumes:
       - database:/home/loumouli/data
