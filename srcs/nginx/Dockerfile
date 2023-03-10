@@ -9,4 +9,5 @@ COPY ./index.html /var/www/html
 EXPOSE 443/tcp
 EXPOSE 443/udp
 
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-t"]
