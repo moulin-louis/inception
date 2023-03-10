@@ -25,6 +25,7 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
     php8-pdo_sqlite \
     php8-tokenizer \
     php8-pecl-redis \
+	curl \
 	&& ln /usr/bin/php8 /usr/bin/php &&\
 	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
