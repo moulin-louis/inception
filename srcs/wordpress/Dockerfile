@@ -35,4 +35,4 @@ COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["whoami"]
