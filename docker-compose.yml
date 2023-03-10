@@ -1,6 +1,6 @@
 volumes:
   database:
-    drive: local
+    driver: local
     name: database
     driver_opts:
       type: none
