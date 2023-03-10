@@ -5,7 +5,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/loumouli/data
+      device: /home/loumouli/data/database
 
 services:
   nginx:
