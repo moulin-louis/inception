@@ -2,5 +2,5 @@
 
 mkdir -p /var/www/html/wordpress
 cd /var/www/html/wordpress
-wget http://wordpress.org/latest.tar.gz
-tar -xzvf latest.tar.gz
+wget -q http://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
