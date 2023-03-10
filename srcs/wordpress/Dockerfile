@@ -7,7 +7,7 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
     php8-common \
 	php8-session\
 	php8-gd\
-	php8-mcrypt\
+	php8-pecl-mcrypt\
 	php8-soap\
 	php8-gettext\
 	php8-ldap\
