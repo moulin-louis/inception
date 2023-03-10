@@ -6,8 +6,6 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private
 COPY ./nginx.conf /etc/nginx/
 COPY ./index.html /var/www/html
 
-CMD ["ls", "/var/www/html"]
-
 EXPOSE 443
 
 CMD ["nginx", "-g", "daemon off;"]
