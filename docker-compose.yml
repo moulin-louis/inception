@@ -22,5 +22,6 @@ services:
       - db:/var/www/html
     ports:
       - "443:443"
+      - "9000:9000"
     restart: always
 
