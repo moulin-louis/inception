@@ -6,14 +6,14 @@
 #    By: loumouli <loumouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 10:25:58 by loumouli          #+#    #+#              #
-#    Updated: 2023/03/10 17:44:04 by loumouli         ###   ########.fr        #
+#    Updated: 2023/03/10 17:44:30 by loumouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all: clean user build
 
 user:
-	@cp hosts /etc/hosts
+	@sudo cp hosts /etc/hosts
 
 build:
 	mkdir -p /home/loumouli/data/db
