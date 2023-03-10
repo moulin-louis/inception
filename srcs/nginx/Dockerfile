@@ -1,7 +1,5 @@
-FROM debian:buster
+FROM alpine:3.17
 
 COPY conf nginx.conf
 
-RUN apt-get update ; apt-get install -y nginx openssl ; cp nginx.conf /etc/nginx/nginx.conf ; nginx -s reload
-
-EXPOSE 443
+RUN apk update; echo hello
