@@ -6,14 +6,14 @@
 #    By: loumouli <loumouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 10:25:58 by loumouli          #+#    #+#              #
-#    Updated: 2023/03/10 17:41:38 by loumouli         ###   ########.fr        #
+#    Updated: 2023/03/10 17:41:58 by loumouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all: clean user build
 
 user:
-	@sudo echo "127.0.0.1 localhost loumouli.42.fr" > /etc/hots
+	@sudo echo "127.0.0.1 localhost loumouli.42.fr" > /etc/hosts
 
 build:
 	mkdir -p /home/loumouli/data/db
