@@ -1,7 +1,11 @@
 volumes:
   database:
-  drive:local
-    name:database
+    drive: local
+    name: database
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/loumouli/data
 
 services:
   nginx:
