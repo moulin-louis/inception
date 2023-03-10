@@ -31,7 +31,7 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 	chmod +x wp-cli.phar &&\
 	mv wp-cli.phar /usr/local/bin/wp
 
-RUN	adduser -S nginx &&	addgroup -S nginx && echo "127.0.0.1 localhost loumouli.42.fr" > /etc/hosts
+RUN	adduser -S nginx &&	addgroup -S nginx
 
 COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
