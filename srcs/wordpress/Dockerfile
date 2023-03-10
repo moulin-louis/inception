@@ -33,4 +33,6 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 
 COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
-CMD ["tail", "-f"]
+EXPOSE 9000
+
+CMD ["/usr/sbin/php8-fpm8", "-F"]
