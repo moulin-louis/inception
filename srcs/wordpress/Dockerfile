@@ -1,7 +1,5 @@
 FROM alpine:3.17
 
-USER www-data
-
 RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
 	&&	apk update \
 	&& apk add --no-cache php8 \
