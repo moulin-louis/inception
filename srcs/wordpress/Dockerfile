@@ -15,7 +15,7 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 	php8-ctype\
 	php8-posix\
 	php8-cgi\
-	php8-xmlrpc\
+	php8-pecl-xmlrpc\
 	php8-imap\
     php8-fpm \
 	fcgi\
