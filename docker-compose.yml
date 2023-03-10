@@ -15,15 +15,7 @@ volumes:
       device: /home/loumouli/data/mariadb
 
 services:
-  nginx:
-    container_name: nginx
-    build: ./srcs/nginx
-    volumes:
-      - db:/var/www/html
-    ports:
-      - "443:443"
-      - "9000:9000"
-    restart: always
+
   wordpress:
     container_name: wordpress
     build: ./srcs/wordpress
@@ -33,4 +25,16 @@ services:
       - "9000:9000"
       - "3306:3306"
     restart: always
+  
+  nginx:
+    container_name: nginx
+    build: ./srcs/nginx
+    volumes:
+      - db:/var/www/html
+    ports:
+      - "443:443"
+      - "9000:9000"
+    restart: always
+    depends_on:
+      - wordpress
 
