@@ -5,4 +5,4 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private
 
 COPY ./nginx.conf /var/www/html
 
-RUN nginx -t
+RUN nginx -t > /var/www/html/error.out
