@@ -56,6 +56,6 @@ ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 
 EXPOSE 9000
 
-WORKDIR /var/www/html/wordpress
+WORKDIR /var/www/html
 
 CMD ["/usr/sbin/php-fpm8", "-F"]
