@@ -24,4 +24,13 @@ services:
       - "443:443"
       - "9000:9000"
     restart: always
+  wordpress:
+    container_name: wordpress
+    build: ./srcs/wordpress
+    volumes:
+      - db:/var/www/html
+    ports:
+      - "9000:9000"
+      - "3306:3306"
+    restart: always
 
