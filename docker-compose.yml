@@ -1,18 +1,25 @@
 volumes:
-  database:
+  db:
     driver: local
-    name: database
+    name: db
     driver_opts:
       type: none
       o: bind
-      device: /home/loumouli/data/database
+      device: /home/loumouli/data/db
+  mariadb:
+    driver: local
+    name: mariadb
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/loumouli/data/mariadb
 
 services:
   nginx:
     container_name: nginx
     build: ./srcs/nginx
     volumes:
-      - database:/var/www/html
+      - db:/var/www/html
     ports:
       - "443:443"
     restart: always
