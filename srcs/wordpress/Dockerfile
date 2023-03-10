@@ -31,5 +31,6 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
 	chmod +x wp-cli.phar &&\
 	mv wp-cli.phar /usr/local/bin/wp
 
+COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
-CMD ["wp", "--info"]
+CMD ["tail", "-f"]
