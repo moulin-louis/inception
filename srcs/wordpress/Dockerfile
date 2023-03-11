@@ -40,7 +40,7 @@ RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositor
     php8-pecl-redis \
 	curl \
 	wget \
-	&& ln /usr/bin/php8 /usr/bin/php &&
+	&& ln /usr/bin/php8 /usr/bin/php
 
 RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&\
 	chmod +x wp-cli.phar &&\
