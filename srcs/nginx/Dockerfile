@@ -9,5 +9,5 @@ COPY ./index.html /var/www/html
 
 EXPOSE 443
 
-# CMD ["nginx", "-g", "daemon off;"]
-CMD ["nginx", "-t"]
+CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-t"]
