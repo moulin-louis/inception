@@ -3,11 +3,7 @@
 mkdir 	-p /var/www/html/
 cp 		/tmp/wp-config.php /var/www/html/wp-config.php
 cd 		/var/www/html/
-wget 	-q http://wordpress.org/latest.tar.gz
-tar 	-xzf latest.tar.gz
-rm 		-rf latest.tar.gz
-cp 		-r ./wordpress/* .
-rm 		-rf ./wordpress
+
 touch 	/var/log/php8/www.error.log && chmod 666 /var/log/php8/www.error.log
 
 /usr/local/bin/wp	--info
