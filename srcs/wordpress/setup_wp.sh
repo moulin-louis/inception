@@ -7,3 +7,5 @@ tar -xzf latest.tar.gz
 rm -fr latest.tar.gz
 cp -r ./wordpress/* .
 rm -rf ./wordpress
+
+exec $@
