@@ -6,7 +6,7 @@
 #    By: loumouli <loumouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 10:25:58 by loumouli          #+#    #+#              #
-#    Updated: 2023/03/11 10:27:28 by loumouli         ###   ########.fr        #
+#    Updated: 2023/03/11 10:28:41 by loumouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,4 +29,4 @@ clean:
 	docker volume rm $$(docker volume ls -q) > /dev/null 2> /dev/null;\
 	docker network prune -f > /dev/null 2> /dev/null;\
 
-.PHONY: build all clean
+.PHONY: all clean user build
