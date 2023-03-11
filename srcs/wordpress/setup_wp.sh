@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir -p /var/www/html/wordpress
-cd /var/www/html/wordpress
+mkdir -p /var/www/html/
+cd /var/www/html/
 wget -q http://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz
 rm -fr latest.tar.gz
@@ -10,7 +10,6 @@ rm -rf ./wordpress
 touch /var/log/php8/www.error.log && chmod 666 /var/log/php8/www.error.log
 /usr/local/bin/wp	--info
 /usr/local/bin/wp	core download --allow-root --path="/var/www/html"
-
 rm					-f /var/www/html/wp-config.php
 cp					./wp-config.php /var/www/html/wp-config.php
 
