@@ -1,19 +1,18 @@
 #!/bin/sh
 
-mkdir -p /var/www/html/
-cp					./wp-config.php /var/www/html/wp-config.php
-cd /var/www/html/
-wget -q http://wordpress.org/latest.tar.gz
-tar -xzf latest.tar.gz
-rm -fr latest.tar.gz
-cp -r ./wordpress/* .
-rm -rf ./wordpress
-touch /var/log/php8/www.error.log && chmod 666 /var/log/php8/www.error.log
+mkdir 	-p /var/www/html/
+cp 		./wp-config.php /var/www/html/wp-config.php
+cd 		/var/www/html/
+wget 	-q http://wordpress.org/latest.tar.gz
+tar 	-xzf latest.tar.gz
+rm 		-rf latest.tar.gz
+cp 		-r ./wordpress/* .
+rm 		-rf ./wordpress
+touch 	/var/log/php8/www.error.log && chmod 666 /var/log/php8/www.error.log
+
 /usr/local/bin/wp	--info
 /usr/local/bin/wp	core download --allow-root --path="/var/www/html"
 rm					-f /var/www/html/wp-config.php
-
-cp					./wp-config.php /var/www/html/wp-config.php
 
 /usr/local/bin/wp	core install \
 					--allow-root \
