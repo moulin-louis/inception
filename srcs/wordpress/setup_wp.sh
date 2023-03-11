@@ -1,6 +1,7 @@
 #!/bin/sh
 
 mkdir -p /var/www/html/
+cp					./wp-config.php /var/www/html/wp-config.php
 cd /var/www/html/
 wget -q http://wordpress.org/latest.tar.gz
 tar -xzf latest.tar.gz
