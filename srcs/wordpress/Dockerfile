@@ -60,6 +60,6 @@ WORKDIR /var/www/html
 
 EXPOSE 9000
 
-RUN /usr/sbin/php-fpm8 -F
+# RUN /usr/sbin/php-fpm8 -F
 
 CMD [ "tail", "-f" ]
