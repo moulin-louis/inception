@@ -48,6 +48,7 @@ RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN	adduser -S nginx &&	addgroup -S nginx
 
+RUN mkdir /run/php
 
 COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
@@ -55,8 +56,8 @@ COPY ./setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 
-EXPOSE 9000
-
 WORKDIR /var/www/html
 
-CMD ["/usr/sbin/php-fpm8", "-F", ";", "echo", "test"]
+EXPOSE 9000
+
+CMD ["/usr/sbin/php-fpm8", "-F"]
