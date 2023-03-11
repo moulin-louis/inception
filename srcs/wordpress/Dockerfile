@@ -1,6 +1,6 @@
 FROM alpine:3.17
 
-RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
+RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
 	&&	apk update \
 	&& apk add --no-cache php8 \
     php8-common \
@@ -40,8 +40,9 @@ RUN 	echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/reposito
     php8-pecl-redis \
 	curl \
 	wget \
-	&& ln /usr/bin/php8 /usr/bin/php &&\
-	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&\
+	&& ln /usr/bin/php8 /usr/bin/php &&
+
+RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&\
 	chmod +x wp-cli.phar &&\
 	mv wp-cli.phar /usr/local/bin/wp
 
@@ -58,4 +59,4 @@ EXPOSE 9000
 
 WORKDIR /var/www/html
 
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["/usr/sbin/php-fpm8", "-F", ";", "echo", "test"]
