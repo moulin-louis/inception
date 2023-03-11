@@ -60,5 +60,5 @@ WORKDIR /var/www/html/wordpress
 
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm8", "-F"]
+CMD ["/usr/sbin/php-fpm8", "-tt"]
 
