@@ -25,14 +25,14 @@ services:
     restart: always
 
   nginx:
+    depends_on:
+      - wordpress
     container_name: nginx
     build: ./srcs/nginx
     volumes:
       - db:/var/www/html
     ports:
       - "443:443"
-    depends_on:
-      - wordpress
     networks:
       - network
     restart: always
