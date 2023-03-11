@@ -21,7 +21,6 @@ services:
     build: ./srcs/wordpress
     volumes:
       - db:/var/www/html
-    ports:
     networks:
       - network
   
