@@ -15,7 +15,6 @@ volumes:
       device: /home/loumouli/data/mariadb
 
 services:
-
   wordpress:
     container_name: wordpress
     build: ./srcs/wordpress
@@ -23,7 +22,8 @@ services:
       - db:/var/www/html
     networks:
       - network
-  
+    restart: always
+
   nginx:
     container_name: nginx
     build: ./srcs/nginx
@@ -31,11 +31,14 @@ services:
       - db:/var/www/html
     ports:
       - "443:443"
-    restart: always
     depends_on:
       - wordpress
     networks:
       - network
+    restart: always
+
 
 networks:
   network:
+    name: network
+    driver: bridge
