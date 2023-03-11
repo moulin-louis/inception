@@ -54,7 +54,7 @@ COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
 COPY ./setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
-CMD [ "sleep 150" ]
+CMD [ "sleep", "150" ]
 
 # ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 
