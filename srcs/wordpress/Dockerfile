@@ -54,13 +54,13 @@ COPY ./www.conf /etc/php8/php-fpm.d/www.conf
 
 COPY ./setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
-CMD [ "tail", "-f" ]
+CMD [ "bash" ]
 
-ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
+# ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 
-WORKDIR /var/www/html
+# WORKDIR /var/www/html
 
-EXPOSE 9000
+# EXPOSE 9000
 
 # RUN /usr/sbin/php-fpm8 -F
 
