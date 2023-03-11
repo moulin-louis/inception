@@ -58,9 +58,9 @@ RUN chmod +x /tmp/setup_wp.sh
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 CMD [ "sleep", "150" ]
 
-# WORKDIR /var/www/html
+WORKDIR /var/www/html/wordpress
 
-# EXPOSE 9000
+EXPOSE 9000
 
-# RUN /usr/sbin/php-fpm8 -F
+RUN /usr/sbin/php-fpm8 -F
 
