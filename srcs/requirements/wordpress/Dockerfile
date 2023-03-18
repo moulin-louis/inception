@@ -57,7 +57,7 @@ RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
-# ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
+ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 CMD [ "tail", "-f" ]
 # CMD ["/usr/sbin/php-fpm8", "-F"]
 # CMD ["/usr/sbin/php-fpm8", "-tt"]
