@@ -5,5 +5,5 @@ COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 COPY ./script/script_db.sh /tmp
 RUN chmod 777 /tmp/script_db.sh
-ENTRYPOINT [ "bash", "/tmp/script_db.sh" ]
+ENTRYPOINT [ "/tmp/script_db.sh" ]
 EXPOSE 3306
