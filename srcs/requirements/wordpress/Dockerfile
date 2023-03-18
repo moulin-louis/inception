@@ -53,10 +53,10 @@ RUN chown -R www-data:www-data /var/www/html
 
 RUN mkdir /run/php
 
-COPY ./www.conf /etc/php8/php-fpm.d/www.conf
-COPY ./wp-config.php /tmp
+COPY www.conf /etc/php8/php-fpm.d/www.conf
+COPY wp-config.php /tmp
 
-COPY ./setup_wp.sh /tmp/setup_wp.sh
+COPY setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 

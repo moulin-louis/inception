@@ -17,7 +17,7 @@ volumes:
 services:
   wordpress:
     container_name: wordpress
-    build: ./srcs/wordpress
+    build: requirements/wordpress
     volumes:
       - db:/var/www/html
     networks:
@@ -28,7 +28,7 @@ services:
     depends_on:
       - wordpress
     container_name: nginx
-    build: ./srcs/nginx
+    build: requirements/nginx
     volumes:
       - db:/var/www/html
     ports:
