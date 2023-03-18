@@ -3,6 +3,8 @@ FROM alpine:3.17
 RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
 	&&	apk update \
 	&& apk add --no-cache php8 \
+    mariadb\
+    mariadb-client\
     php8-common \
 	php8-session\
 	php8-gd\
@@ -42,27 +44,20 @@ RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositor
 	wget \
 	&& ln /usr/bin/php8 /usr/bin/php
 
+
+RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
+RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
+RUN chown -R root:root /var/www/wordpress
+COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
+
 RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar &&\
 	chmod +x wp-cli.phar &&\
 	mv wp-cli.phar /usr/local/bin/wp
 
-RUN	adduser -u 82 -D -S -G www-data www-data
-RUN mkdir -p /var/www/html
-RUN chmod 777 -R /var/www/html
-RUN chown -R www-data:www-data /var/www/html
 
-RUN mkdir /run/php
-
-COPY www.conf /etc/php8/php-fpm.d/www.conf
-COPY wp-config.php /tmp
-
-COPY setup_wp.sh /tmp/setup_wp.sh
+COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
-
-WORKDIR /var/www/html
-
-EXPOSE 9000
 
 CMD ["/usr/sbin/php-fpm8", "-F"]
 # CMD ["/usr/sbin/php-fpm8", "-tt"]
