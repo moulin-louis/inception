@@ -18,11 +18,11 @@ user:
 build:
 	mkdir -p /home/loumouli/data/db
 	mkdir -p /home/loumouli/data/mariadb
-	docker compose up --build ./srcs/docker-compose.yml
+	docker compose up ./srcs/docker-compose.yml --build
 
 clean:
-	@sudo rm -rf /home/loumouli/data
 	@echo cleaning all docker related stuff
+	@sudo rm -rf /home/loumouli/data
 	@docker stop $$(docker ps -qa) > /dev/null 2> /dev/null ;\
 	docker rm $$(docker ps -qa) > /dev/null 2> /dev/null;\
 	docker rmi -f $$(docker images -qa) > /dev/null 2> /dev/null;\
