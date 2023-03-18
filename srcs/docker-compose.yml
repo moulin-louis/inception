@@ -15,6 +15,10 @@ volumes:
       device: /home/loumouli/data/mariadb
 
 services:
+  mariadb:
+    container_name: mariadb
+    build: requirements/mariadb
+    restart: always
   wordpress:
     container_name: wordpress
     build: requirements/wordpress
