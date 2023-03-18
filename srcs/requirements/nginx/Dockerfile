@@ -5,7 +5,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/private
 RUN mkdir -p /var/www/html && mkdir -p /var/run/nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN chmod 755 /var/www/data && chown -R www-data:www-data /var/www/html
+RUN chmod 755 /var/www/wordpress && chown -R www-data:www-data /var/www/wordpress
 
 
 EXPOSE 443
