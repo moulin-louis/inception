@@ -1,12 +1,8 @@
-mkdir /run/openrc && touch /run/openrc/softlevel
-
-/etc/init.d/mariadb setup
-/etc/init.d/mariadb start
-rc-service mariadb restart
-
-# mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
-# mysql -e " CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
-# mysql -e "GRANT ALL USER 'root'@'localhost' IDENTIFIED by '${SQL_ROOT_PASSWORD}'"
-# mysql -e "FLUSH PRIVILEGES;"
-# mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
-# exec "$@"
+#!/bin/sh
+service mysql start;
+mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
+mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
+mysql -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO \`${SQL_USER}\`@'%' IDENTIFIED BY '${SQL_PASSWORD}';"
+mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
+mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+exec mysqld_safe

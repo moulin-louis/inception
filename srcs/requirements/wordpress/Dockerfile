@@ -1,5 +1,7 @@
 FROM alpine:3.17
 
+RUN set -x && adduser -u 82 -D -S -G www-data www-data
+
 RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositories \
 	&&	apk update \
 	&& apk add --no-cache php8 \
@@ -58,7 +60,4 @@ RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
-CMD [ "tail", "-f" ]
-# CMD ["/usr/sbin/php-fpm8", "-F"]
-# CMD ["/usr/sbin/php-fpm8", "-tt"]
 

@@ -6,19 +6,19 @@
 #    By: loumouli <loumouli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 10:25:58 by loumouli          #+#    #+#              #
-#    Updated: 2023/03/11 10:28:41 by loumouli         ###   ########.fr        #
+#    Updated: 2023/03/18 19:35:02 by loumouli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all: clean user build
+all: clean build
 
 user:
 	@sudo cp hosts /etc/hosts
 
 build:
-	mkdir -p /home/loumouli/data/db
-	mkdir -p /home/loumouli/data/mariadb
-	cd ./srcs/ && docker compose up --build
+	@sudo mkdir -p /home/loumouli/data/db
+	@sudo mkdir -p /home/loumouli/data/mariadb
+	@cd ./srcs/ && docker compose up --build
 
 clean:
 	@echo cleaning all docker related stuff
