@@ -14,6 +14,6 @@ COPY ./conf/50-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
 
 CMD [ "tail", "-f" ]
-CMD [ "mysqld", "--bind-address=0.0.0.0"]
+# CMD [ "mysqld", "--bind-address=0.0.0.0"]
 
 EXPOSE 3306
