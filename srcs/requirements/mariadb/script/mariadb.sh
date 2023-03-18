@@ -1,4 +1,3 @@
-sleep 5
 mkdir /run/openrc && touch /run/openrc/softlevel
 
 /etc/init.d/mariadb setup
