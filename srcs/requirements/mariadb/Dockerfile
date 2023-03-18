@@ -11,8 +11,8 @@ COPY ./conf/50-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
 # RUN /etc/init.d/mariadb setup
 
-# COPY ./script/script_db.sh /tmp
-# RUN chmod 777 /tmp/script_db.sh
-# ENTRYPOINT [ "sh", "/tmp/script_db.sh" ]
-CMD [ "tail", "-f" ]
+COPY ./script/script_db.sh /tmp
+RUN chmod 777 /tmp/script_db.sh
+ENTRYPOINT [ "sh", "/tmp/script_db.sh" ]
+# CMD [ "tail", "-f" ]
 EXPOSE 3306
