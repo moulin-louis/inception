@@ -7,5 +7,5 @@ COPY ./conf/50-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY ./script/script_db.sh /tmp
 RUN chmod 777 /tmp/script_db.sh
 ENTRYPOINT [ "sh", "/tmp/script_db.sh" ]
+CMD [ "rc-status" ]
 EXPOSE 3306
-CMD [ "tail -f" ]
