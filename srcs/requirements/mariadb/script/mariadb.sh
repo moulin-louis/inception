@@ -2,16 +2,6 @@ mkdir /run/openrc && touch /run/openrc/softlevel
 
 /etc/init.d/mariadb setup
 /etc/init.d/mariadb start
-<< EOF mysql_secure_installation
-1234
-n
-Y
-$SQL_ROOT_PASSWORD
-Y
-n
-Y
-Y
-EOF
 rc-service mariadb restart
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
