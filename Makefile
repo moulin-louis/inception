@@ -18,7 +18,7 @@ user:
 build:
 	mkdir -p /home/loumouli/data/db
 	mkdir -p /home/loumouli/data/mariadb
-	docker compose up --build
+	docker compose up --build ./srcs/docker-compose.yml
 
 clean:
 	@sudo rm -rf /home/loumouli/data
