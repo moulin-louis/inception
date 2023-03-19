@@ -4,7 +4,6 @@
 mysqld -u root --bind-address=localhost --silent-startup > /tmp/mariastart.log 2>&1 &
 PID=$!
 
-sleep 10
 # create all mandatory database and user
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
