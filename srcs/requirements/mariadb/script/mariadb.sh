@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # try to launch mysql service
-/etc/init.d/mysql start
+mysld -u root --bind-address=localhost --silent-startup &
+
+sleep 10
 # create all mandatory database and user
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
@@ -15,9 +17,9 @@ mysql -e "FLUSH PRIVILEGES;"
 # $SQL_ROOT_PASSWORD
 # EOF
 
-/etc/init.d/mysql stop
+# /etc/init.d/mysql stop
 
-# mysqladmin -u root -p$SQL_ROOT_PASSWORD restart
+mysqladmin -u root -p$SQL_ROOT_PASSWORD restart
 
 # relaunch the service
 exec mysqld_safe
