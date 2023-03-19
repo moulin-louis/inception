@@ -9,7 +9,7 @@ wp config create --allow-root\
   --path='/var/www/wordpress'
 sleep 2
 
-wp core install --allow-root --url=loumouli.42.fr --title="Inception-42"\
+wp core install --allow-root --url=localhost --title="Inception-42"\
   --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASSWORD\
   --admin_email=$WP_ADMIN_MAIL --path='/var/www/wordpress'
 
