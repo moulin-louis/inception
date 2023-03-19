@@ -1,5 +1,5 @@
 #!bin/sh
-sleep 7
+sleep 10
 rm -rf /var/www/wordpress/wp-config.php
 wp config create --allow-root\
   --dbname=$SQL_DATABASE\

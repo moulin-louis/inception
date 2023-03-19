@@ -30,7 +30,6 @@ mysql <<EOF
 create database \`${SQL_DATABASE}\`;
 grant all privileges on \`${SQL_DATABASE}\`.* to  \`${SQL_USER}\`@'%' identified by '${SQL_PASSWORD}';
 alter user 'root'@'localhost' identified by '${SQL_ROOT_PASSWORD}';
-grant usage on \`${SQL_DATABASE}\`.* to '${WP_USER_LOGIN}'@'localhost' identified by '${WP_USER_PASSWORD}';
 flush privileges;
 EOF
 
