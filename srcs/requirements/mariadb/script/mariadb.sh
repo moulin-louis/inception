@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # try to launch mysql service
-mysld -u root --bind-address=localhost --silent-startup &
+mysqld -u root --bind-address=localhost --silent-startup &
 
 sleep 10
 # create all mandatory database and user
