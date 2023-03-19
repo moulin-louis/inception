@@ -19,7 +19,7 @@ mysql -e "FLUSH PRIVILEGES;"
 
 # /etc/init.d/mysql stop
 
-mysqladmin -u root -p$SQL_ROOT_PASSWORD restart
+mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 # relaunch the service
 exec mysqld_safe
