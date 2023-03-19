@@ -1,21 +1,10 @@
-FROM debian:buster
+FROM alpine:3.15
 
-# Update and install mariadb and mariadb tools
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install mariadb-server -y
-
-# try to copy the conf file everywhere to be sure
-COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
+RUN apk upgrade; apk add mariadb mariadb-client
 COPY conf/50-server.cnf	/etc/my.cnf
-COPY conf/50-server.cnf	/etc/mysql/my.cnf
-COPY conf/50-server.cnf	~/my.cnf
-COPY script/mariadb.sh /mariadb.sh
-
-RUN mkdir -p /var/lib/mysql
-
-# Exposing port 3306 to communicate with wordpress
+RUN chown -R mysql:mysql /var/lib/mysql; mysql_install_db --user=mysql;
 EXPOSE 3306
-
+COPY ./script/mariadb.sh /tmp/setup.sh
 # launching my script
-ENTRYPOINT ["bash", "mariadb.sh"]
-CMD [ "mysqld_safe" ]
+ENTRYPOINT ["/bin/sh", "/tmp/setup.sh"]
+CMD [ "/usr/bin/mysqld", "-u", "mysql" ]
