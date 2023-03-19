@@ -18,4 +18,4 @@ EXPOSE 3306
 
 # launching my script
 ENTRYPOINT ["bash", "mariadb.sh"]
-CMD ["/usr/bin/mysqld", "-u", "mysql"]
+CMD [ "mysqld_safe" ]
