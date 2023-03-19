@@ -19,5 +19,4 @@ wp user create --allow-root --role=author $WP_USER_LOGIN $WP_USER_MAIL\
 if [ ! -d "/run/php" ]; then
   mkdir /run/php
 fi
-
 exec $@
