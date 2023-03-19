@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # try to launch mysql service
-mysqld -u root --bind-address=localhost --silent-startup > /tmp/mariastart.log 2>&1 &
+mysqld -u root --bind-address=localhost --silent-startup &
 PID=$!
 
 until tail "/tmp/mariastart.log" | grep -qi "Version:"; do
