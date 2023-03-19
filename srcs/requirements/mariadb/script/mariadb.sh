@@ -22,3 +22,4 @@ mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 # relaunch the service
 exec mysqld_safe
+/etc/init.d/mysql start
