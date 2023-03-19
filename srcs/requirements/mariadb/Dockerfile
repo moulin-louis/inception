@@ -11,6 +11,8 @@ COPY conf/50-server.cnf	/etc/mysql/my.cnf
 COPY conf/50-server.cnf	~/my.cnf
 COPY script/mariadb.sh /mariadb.sh
 
+RUN mkdir -p /var/lib/mysql
+
 # launching my script
 ENTRYPOINT ["bash", "mariadb.sh"]
 
