@@ -33,7 +33,7 @@ services:
     volumes:
       - db:/var/www/wordpress
     networks:
-      - network"  
+      - network  
     env_file: .env
     restart: on-failure
 
