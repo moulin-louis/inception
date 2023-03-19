@@ -13,8 +13,9 @@ COPY script/mariadb.sh /mariadb.sh
 
 RUN mkdir -p /var/lib/mysql
 
-# launching my script
-ENTRYPOINT ["bash", "mariadb.sh"]
-
 # Exposing port 3306 to communicate with wordpress
 EXPOSE 3306
+
+# launching my script
+ENTRYPOINT ["bash", "mariadb.sh"]
+CMD ["/usr/bin/mysqld", "-u", "mysql"]

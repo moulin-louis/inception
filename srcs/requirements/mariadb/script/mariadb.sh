@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # try to launch mysql service
-mysqld -u root --bind-address=localhost --silent-startup &
+mysqld -u root --bind-address=localhost --silent-startup > /tmp/mariastart.log 2>&1 &
+PID = $!
 
 sleep 10
 # create all mandatory database and user
@@ -13,13 +14,18 @@ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
 # shutdown the database
 mysql -e "FLUSH PRIVILEGES;"
 
+kill -TERM ${PID}
+chown -R mysql:mysql /var/lib/mysql
+
+exec $@
+
 # << EOF mysqladmin -u root -p  shutdown
 # $SQL_ROOT_PASSWORD
 # EOF
 
 # /etc/init.d/mysql stop
 
-mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+# mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 # relaunch the service
-exec mysqld_safe
+# exec mysqld_safe
