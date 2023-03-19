@@ -60,4 +60,5 @@ RUN chmod +x /tmp/setup_wp.sh
 
 ENTRYPOINT [ "/bin/sh", "/tmp/setup_wp.sh" ]
 # CMD [ "tail", "-f" ]
-CMD [ "/usr/sbin/php-fpm8", "-F" ]
+# CMD [ "/usr/sbin/php-fpm8", "-F" ]
+CMD [ "/usr/sbin/php-fpm8", "-tt" ]
