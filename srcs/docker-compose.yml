@@ -22,8 +22,6 @@ services:
       - mariadb:/var/lib/mysql
     networks:
       - network
-    expose:
-      - "3306"
     env_file: .env
     restart: on-failure
 
@@ -36,8 +34,6 @@ services:
       - db:/var/www/wordpress
     networks:
       - network
-    expose:
-      - "9000"
     env_file: .env
     restart: on-failure
 
