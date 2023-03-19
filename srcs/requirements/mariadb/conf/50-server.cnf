@@ -10,4 +10,4 @@ symbolic-links=0
 datadir=/var/lib/mysql
 
 [server]
-bind-address=mariadb.mandatory
+bind-address=0.0.0.0
