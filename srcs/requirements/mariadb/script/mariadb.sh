@@ -7,7 +7,7 @@ PID=$!
 until tail "/tmp/mariastart.log" | grep -qi "Version:"; do
 	sleep 0.2
 done
-
+chown -R mysql:mysql /var/lib/mysql
 mysql << EOF
 CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;
 CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';
