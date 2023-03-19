@@ -36,7 +36,7 @@ EOF
 
 kill -TERM ${PID}
 chown -R mysql:mysql /var/lib/mysql;
-
+sleep 3
 exec $@
 
 # << EOF mysqladmin -u root -p  shutdown
