@@ -1,7 +1,8 @@
 #!bin/sh
 sleep 7
 rm -rf /var/www/wordpress/wp-config.php
-wp config create --dbname=$SQL_DATABASE\
+wp config create --allow-root\
+  --dbname=$SQL_DATABASE\
   --dbuser=$SQL_USER\
   --dbpass=$SQL_PASSWORD\
   --dbhost=mariadb:3306\
