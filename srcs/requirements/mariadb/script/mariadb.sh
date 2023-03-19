@@ -18,7 +18,7 @@ EOF
 
 kill -TERM ${PID}
 
-exec $@
+# exec $@
 
 # << EOF mysqladmin -u root -p  shutdown
 # $SQL_ROOT_PASSWORD
