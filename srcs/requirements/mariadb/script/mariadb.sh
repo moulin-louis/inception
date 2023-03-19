@@ -2,7 +2,7 @@
 
 # try to launch mysql service
 mysqld -u root --bind-address=localhost --silent-startup > /tmp/mariastart.log 2>&1 &
-PID = $!
+PID=$!
 
 sleep 10
 # create all mandatory database and user
