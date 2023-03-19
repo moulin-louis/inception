@@ -2,6 +2,7 @@
 sleep 5
 rm -rf /var/www/wordpress/wp-config.php
 wp config create --allow-root\
+  --url=loumouli.42.fr
   --dbname=$SQL_DATABASE\
   --dbuser=$SQL_USER\
   --dbpass=$SQL_PASSWORD\
