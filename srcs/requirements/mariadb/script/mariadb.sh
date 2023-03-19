@@ -11,11 +11,11 @@ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD};'"
 # shutdown the database
 mysql -e "FLUSH PRIVILEGES;"
 
-# << EOF mysqladmin -u root -p  shutdown
-# $SQL_ROOT_PASSWORD
-# EOF
+<< EOF mysqladmin -u root -p  shutdown
+$SQL_ROOT_PASSWORD
+EOF
 
-mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+# mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 # relaunch the service
 exec mysqld_safe
