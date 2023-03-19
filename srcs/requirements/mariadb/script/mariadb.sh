@@ -17,8 +17,8 @@ FLUSH PRIVILEGES;
 EOF
 
 kill -TERM ${PID}
-
-# exec $@
+sleep 3
+exec $@
 
 # << EOF mysqladmin -u root -p  shutdown
 # $SQL_ROOT_PASSWORD
