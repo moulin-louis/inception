@@ -1,11 +1,11 @@
 #!bin/sh
 sleep 7
 rm -rf /var/www/wordpress/wp-config.php
-wp config create --allow-root --dbname=$SQL_DATABASE --dbuser=$SQL_USER --dbpass=$SQL_PASSWORD --dbhost=mariadb:3306 --path='/var/www/wordpress' --debug=www
-cat << EOF >> /var/www/wordpress/wp-config.php
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_LOG', true );
-EOF
+wp config create --dbname=$SQL_DATABASE\
+  --dbuser=$SQL_USER\
+  --dbpass=$SQL_PASSWORD\
+  --dbhost=mariadb:3306\
+  --path='/var/www/wordpress'
 sleep 2
 
 wp core install --url=loumouli.42.fr --title="Inception-42"\
@@ -19,4 +19,4 @@ if [ ! -d "/run/php" ]; then
   mkdir /run/php
 fi
 
-/usr/sbin/php-fpm8 -F
+exec $@

@@ -59,4 +59,4 @@ COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
-
+CMD [ "/usr/sbin/php-fpm8", "-F" ]
