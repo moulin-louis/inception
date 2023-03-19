@@ -46,7 +46,6 @@ RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositor
 	wget \
 	&& ln /usr/bin/php8 /usr/bin/php
 
-
 RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
 RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 RUN chown -R root:root /var/www/wordpress
@@ -56,8 +55,8 @@ RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 	chmod +x wp-cli.phar &&\
 	mv wp-cli.phar /usr/local/bin/wp
 
-
 COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
+
 ENTRYPOINT [ "sh", "/tmp/setup_wp.sh" ]
 
