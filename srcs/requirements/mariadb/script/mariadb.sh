@@ -9,11 +9,11 @@ mysql -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO \`${SQL_USER}\`@'%' I
 # add password to root
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
 
-<< EOF mysqladmin -uroot -p shutdown
-$SQL_ROOT_PASSWORD
-EOF
+# << EOF mysqladmin -uroot -p shutdown
+# $SQL_ROOT_PASSWORD
+# EOF
 
-# mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
+mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown
 
 # relaunch the service
 # exec mysqld_safe
