@@ -1,11 +1,13 @@
+# Mariadb conf file
+# Global options
 [client-server]
 socket=/var/lib/mysql/mysql.sock
 
-[mysql]
-default-character-set=utf8
-
+# Server options
 [mysqld]
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
 datadir=/var/lib/mysql
-bind_address=0.0.0.0
-port=3306
-user=mysql
+
+[server]
+bind-address=mariadb.mandatory
