@@ -46,8 +46,8 @@ RUN echo "http://mirrors.ircam.fr/pub/alpine/edge/testing" >> /etc/apk/repositor
 	wget \
 	&& ln /usr/bin/php8 /usr/bin/php
 
-RUN wget https://fr.wordpress.org/wordpress-6.1.1-fr_FR.tar.gz -P /var/www
-RUN cd /var/www && tar -xzf wordpress-6.1.1-fr_FR.tar.gz && rm wordpress-6.1.1-fr_FR.tar.gz
+RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www
+RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 RUN chown -R root:root /var/www/wordpress
 COPY conf/www.conf /etc/php8/php-fpm.d/www.conf
 
@@ -59,6 +59,4 @@ COPY script/setup_wp.sh /tmp/setup_wp.sh
 RUN chmod +x /tmp/setup_wp.sh
 
 ENTRYPOINT [ "/bin/sh", "/tmp/setup_wp.sh" ]
-# CMD [ "tail", "-f" ]
 CMD [ "/usr/sbin/php-fpm8", "-F" ]
-# CMD [ "/usr/sbin/php-fpm8", "-tt" ]

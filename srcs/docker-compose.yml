@@ -1,11 +1,11 @@
 volumes:
-  db:
+  wordpress:
     driver: local
-    name: db
+    name: wordpress
     driver_opts:
       type: none
       o: bind
-      device: /home/loumouli/data/db
+      device: /home/loumouli/data/wordpress
   mariadb:
     driver: local
     name: mariadb
@@ -17,6 +17,7 @@ volumes:
 services:
   mariadb:
     container_name: mariadb
+    image: mariadb
     build: requirements/mariadb
     volumes:
       - mariadb:/var/lib/mysql
@@ -29,20 +30,23 @@ services:
     depends_on:
       - mariadb
     container_name: wordpress
+    image: wordpress
     build: requirements/wordpress
     volumes:
-      - db:/var/www/wordpress
+      - wordpress:/var/www/wordpress
     networks:
       - network  
     env_file: .env
     restart: on-failure
 
   nginx:
-
+    depends_on:
+      - wordpress
     container_name: nginx
+    image: nginx
     build: requirements/nginx
     volumes:
-      - db:/var/www/wordpress
+      - wordpress:/var/www/wordpress
     ports:
       - "443:443"
     networks:
